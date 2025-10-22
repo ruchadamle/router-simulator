@@ -1,6 +1,6 @@
 import unittest
-from backend.topology import Topology
-from backend.packet import Packet
+from backend.simulator.topology import Topology
+from backend.simulator.packet import Packet
 
 class TestForwarding(unittest.TestCase):
     def test_packet_delivery(self):

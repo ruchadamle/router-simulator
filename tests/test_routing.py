@@ -1,5 +1,5 @@
 import unittest
-from backend.topology import Topology
+from backend.simulator.topology import Topology
 
 class TestRouting(unittest.TestCase):
     def test_dijkstra(self):
