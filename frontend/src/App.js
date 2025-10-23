@@ -58,7 +58,19 @@ function App() {
   };
 
   return (
-    <div style={{ padding: "20px", width: "100vw", height: "100vh", overflow: "hidden" }}>
+    <div
+    style={{
+        display: "flex",
+        flexDirection: "column",
+        width: "100vw",
+        height: "100vh",
+        overflow: "hidden",
+        backgroundColor: "#1e1e2f",
+        color: "#f0f0f0",
+        boxSizing: "border-box",
+        padding: "0 20px 0 20px", // horizontal padding only
+    }}
+    >
       <h1 style={{ fontSize: "24px", marginBottom: "10px" }}>Router Simulator</h1>
 
       <div style={{ marginBottom: "10px" }}>
@@ -89,14 +101,14 @@ function App() {
         </button>
       </div>
 
-      <div style={{ flex: 1, width: "100%", position: "relative" }}>
-        <NetworkGraph
-            routers={topology.routers}
-            links={topology.links}
-            fullPath={fullPath}
-            packetProgress={packetProgress}
-        />
-      </div>
+      <div style={{ flex: 1, width: "100%", position: "relative", minHeight: 0 }}>
+      <NetworkGraph
+        routers={topology.routers}
+        links={topology.links}
+        fullPath={fullPath}
+        packetProgress={packetProgress}
+      />
+    </div>
 
 
       {fullPath.length > 0 && (
