@@ -111,8 +111,8 @@ div strong {
    ================================ */
 .zoom-controls {
   position: absolute;
-  bottom: 15px;
-  right: 15px;
+  bottom: 25px;
+  right: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -148,7 +148,6 @@ div strong {
   transform: scale(0.96);
 }
 
-/* Just for naming clarity */
 .zoom-in::after,
 .zoom-out::after {
   content: "";

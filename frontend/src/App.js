@@ -103,7 +103,7 @@ function App() {
         </div>
       )}
 
-      <div style={{ flex: 1, width: "100%", position: "relative" }}>
+      <div style={{ flexGrow: 1, width: "100%", height: "calc(100vh - 140px)", position: "relative" }}>
         <NetworkGraph
           routers={topology.routers}
           links={topology.links}
