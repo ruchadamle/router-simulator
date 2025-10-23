@@ -5,7 +5,6 @@ Built with **Flask** (backend) and **React + ForceGraph2D** (frontend).
 
 👉 **Live Demo:** [router-simulator-omega.vercel.app](https://router-simulator-omega.vercel.app/)  
 
----
 
 ## 🚀 Features
 
@@ -18,7 +17,6 @@ Built with **Flask** (backend) and **React + ForceGraph2D** (frontend).
 - Responsive graph layout with zoom controls
 - Flask REST API for network topology and routing data
 
----
 
 ## 🧩 Tech Stack
 
@@ -28,7 +26,6 @@ Built with **Flask** (backend) and **React + ForceGraph2D** (frontend).
 | **Backend** | Python, Flask, Flask-CORS |
 | **Deployment** | Render (API), Vercel (Frontend) |
 
----
 
 ### **Backend (Flask)**
 
@@ -41,7 +38,6 @@ python app.py
 ```
 Backend runs on http://127.0.0.1:5000
 
----
 
 ### **Frontend (React)**
 ```bash
@@ -50,8 +46,6 @@ npm install
 npm start
 ```
 Frontend runs on http://localhost:3000
-
----
 
 ## 🩺 **API Endpoints**
 
