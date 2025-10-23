@@ -1,0 +1,141 @@
+/* ================================
+   Global Styles
+   ================================ */
+html, body, #root, .App {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1e1e2f; /* dark background */
+  color: #1d1d26; /* light text for contrast */
+  overflow: hidden; /* prevents scrollbars */
+}
+
+/* Root / App Container */
+#root,
+.App {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+/* ================================
+   Typography
+   ================================ */
+h1 {
+  font-weight: 600;
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+/* ================================
+   Buttons
+   ================================ */
+button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #357abd;
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ================================
+   Form Elements
+   ================================ */
+select {
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background-color: #2e2e3e;
+  color: #f0f0f0;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+label {
+  font-size: 14px;
+  margin-right: 10px;
+  color: #f0f0f0;
+}
+
+/* ================================
+   Packet Path Display
+   ================================ */
+div strong {
+  color: #ffd166;
+}
+
+/* ================================
+   Zoom Controls
+   ================================ */
+.zoom-controls {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: rgba(46, 46, 62, 0.85);
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+/* Circular Zoom Buttons */
+.zoom-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%; /* circular */
+  background-color: #4a90e2;
+  color: #fff;
+  font-size: 22px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.zoom-btn:hover {
+  background-color: #357abd;
+  transform: translateY(-1px);
+}
+
+.zoom-btn:active {
+  transform: scale(0.96);
+}
+
+/* Just for naming clarity */
+.zoom-in::after,
+.zoom-out::after {
+  content: "";
+}
