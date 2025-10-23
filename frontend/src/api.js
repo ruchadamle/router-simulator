@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "http://127.0.0.1:5000/api" });
+const API = axios.create({
+  baseURL: "https://router-simulator.onrender.com/api"
+});
 
 export const getTopology = () => API.get("/topology");
 export const routePacket = (src, dest, payload = "Hello") =>
