@@ -1,4 +1,3 @@
-// src/App.js
 import './App.css';
 import React, { useEffect, useState } from "react";
 import { getTopology, routePacket } from "./api";
@@ -12,6 +11,7 @@ function App() {
 
   const [srcNode, setSrcNode] = useState("");
   const [dstNode, setDstNode] = useState("");
+  const [showPacketPath, setShowPacketPath] = useState(false); // 👈 new state
 
   // Fetch topology
   useEffect(() => {
@@ -36,6 +36,7 @@ function App() {
       const pathData = res.data.path;
       setFullPath(pathData);
       setPacketProgress(0);
+      setShowPacketPath(true); // 👈 show path as soon as packet starts
 
       let progress = 0;
       const interval = setInterval(() => {
@@ -43,11 +44,14 @@ function App() {
         if (progress >= pathData.length - 1) {
           progress = pathData.length - 1;
           clearInterval(interval);
+
+          // 👇 stay visible 3s after finishing
           setTimeout(() => {
             setFullPath([]);
             setPacketProgress(0);
             setIsAnimating(false);
-          }, 500);
+            setShowPacketPath(false);
+          }, 3000);
         }
         setPacketProgress(progress);
       }, 40);
@@ -58,19 +62,7 @@ function App() {
   };
 
   return (
-    <div
-    style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "100vw",
-        height: "100vh",
-        overflow: "hidden",
-        backgroundColor: "#1e1e2f",
-        color: "#f0f0f0",
-        boxSizing: "border-box",
-        padding: "0 20px 0 20px", // horizontal padding only
-    }}
-    >
+    <div style={{ padding: "20px", width: "100vw", height: "100vh", overflow: "hidden" }}>
       <h1 style={{ fontSize: "24px", marginBottom: "10px" }}>Router Simulator</h1>
 
       <div style={{ marginBottom: "10px" }}>
@@ -101,22 +93,24 @@ function App() {
         </button>
       </div>
 
-      <div style={{ flex: 1, width: "100%", position: "relative", minHeight: 0 }}>
-      <NetworkGraph
-        routers={topology.routers}
-        links={topology.links}
-        fullPath={fullPath}
-        packetProgress={packetProgress}
-      />
-    </div>
-
-
-      {fullPath.length > 0 && (
-        <div style={{ marginTop: "10px" }}>
+      {showPacketPath && fullPath.length > 0 && (
+        <div
+          className={`packet-path ${isAnimating ? "fade-in" : "fade-out"}`}
+          style={{ marginBottom: "10px" }}
+        >
           <strong>Packet Path:</strong>{" "}
           {fullPath.slice(0, Math.floor(packetProgress) + 1).join(" → ")}
         </div>
       )}
+
+      <div style={{ flex: 1, width: "100%", position: "relative" }}>
+        <NetworkGraph
+          routers={topology.routers}
+          links={topology.links}
+          fullPath={fullPath}
+          packetProgress={packetProgress}
+        />
+      </div>
     </div>
   );
 }
